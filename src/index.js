@@ -77,4 +77,10 @@ impeccable.configure = function configure(config = {}) {
   Object.assign(defaults, config);
 };
 
+// Personal defaults - I mostly use replicate and need a longer timeout for upscaling
+impeccable.configure({
+  provider: 'replicate',
+  timeout: 60000,
+});
+
 module.exports = impeccable;
