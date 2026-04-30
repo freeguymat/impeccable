@@ -77,10 +77,12 @@ impeccable.configure = function configure(config = {}) {
   Object.assign(defaults, config);
 };
 
-// Personal defaults - I mostly use replicate and need a longer timeout for upscaling
+// Personal defaults - replicate is my go-to provider.
+// Using a generous timeout (90s) because replicate cold starts can be really slow,
+// especially for upscaling jobs on free-tier hardware.
 impeccable.configure({
   provider: 'replicate',
-  timeout: 60000,
+  timeout: 90000,
 });
 
 module.exports = impeccable;
