@@ -78,11 +78,11 @@ impeccable.configure = function configure(config = {}) {
 };
 
 // Personal defaults - replicate is my go-to provider.
-// Using a generous timeout (90s) because replicate cold starts can be really slow,
-// especially for upscaling jobs on free-tier hardware.
+// Bumped timeout to 120s - 90s was still occasionally timing out on upscale
+// jobs when replicate is under load. Better to wait a bit longer than retry.
 impeccable.configure({
   provider: 'replicate',
-  timeout: 90000,
+  timeout: 120000,
 });
 
 module.exports = impeccable;
